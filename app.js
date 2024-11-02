@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const chalk = require('chalk');
+const sequelize = require('./config/postgreSQL/server');
 
 const app = express();
 
