@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const logger = require('../../middleware/log/logger');
 const CustomError = require('../../util/customError');
+const jwtService = require('../jwt.service');
 const userRepository = require('../../repositories/user.repository');
 const fieldValidator = require('../../validator/fieldValidator');
 const { LOG_TYPE } = require('../../constants/log.constant');
@@ -97,10 +98,24 @@ const userService = {
       throw new CustomError(PAYLOAD.USER.INACTIVE, STATUS_CODE.FORBIDDON);
     }
 
+    // generate access token and refresh token
+    const tokenUser = {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.userEmail,
+      password: user.userPassword,
+      isActive: user.isActive,
+    };
+    const accessToken = await jwtService.generateAccessToken(tokenUser);
+    const refreshToken = await jwtService.generateRefreshToken(tokenUser);
+
     return {
       isSuccess: true,
       statusCode: STATUS_CODE.OK,
       responseMessage: user,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
     };
   },
 };

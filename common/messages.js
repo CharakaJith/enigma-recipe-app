@@ -35,4 +35,15 @@ module.exports = {
       },
     },
   },
+
+  // jwt service messages
+  JWT: {
+    GENERATE: {
+      FAILED: (token, error) => `Failed to generate ${token} token: ${error.message}`,
+    },
+    REFRESH: {
+      SUCCESS: 'JWT refreshed!',
+      FAILED: (error) => `Failed to refresh access token: ${error.message}`,
+    },
+  },
 };
