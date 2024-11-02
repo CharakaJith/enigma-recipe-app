@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
+const logger = require('../../middleware/log/logger');
 const { DATABASE } = require('../../common/messages');
+const { APP_ENV, STATUS_CODE } = require('../../constants/app.constant');
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config')[env];
 

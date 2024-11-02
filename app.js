@@ -2,11 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const chalk = require('chalk');
 const sequelize = require('./config/postgreSQL/server');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// global custom error handler
+app.use(errorHandler);
 
 const env = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 3000;
