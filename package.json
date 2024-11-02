@@ -5,6 +5,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
+    "migrate:up": "env-cmd -f .env npx sequelize-cli db:migrate",
+    "migrate:down": "env-cmd -f .env npx sequelize-cli db:migrate:undo",
+    "migrate:down:all": "env-cmd -f .env npx sequelize-cli db:migrate:undo:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +30,7 @@
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.13.1",
     "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2",
     "winston": "^3.16.0",
     "winston-daily-rotate-file": "^5.0.0"
   },
