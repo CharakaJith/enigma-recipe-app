@@ -1,5 +1,12 @@
+import WelcomeCard from '../components/landing-page/WelcomeCard';
+import '../styles/WelcomePage.css';
+
 const WelcomePage = () => {
-  return <h1>Welcome</h1>;
+  return (
+    <div className="body">
+      <WelcomeCard />
+    </div>
+  );
 };
 
 export default WelcomePage;
