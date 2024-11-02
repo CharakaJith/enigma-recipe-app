@@ -3,14 +3,16 @@ module.exports = {
   DATABASE: {
     CONNECTION: {
       SUCCESS: 'Connection has been established successfully!',
-      FAILED: (error) => `Unable to connect to the database: ${error}`,
+      FAILED: (error) => `Failed to connect to the database: ${error}`,
     },
   },
 
   // response payload messages
   PAYLOAD: {
     USER: {
-      EXISTS: `User alreade registered!`,
+      EXISTS: `User already registered!`,
+      INACTIVE: 'User is not active!',
+      INVALID_CRED: 'Invalid user credentials!',
     },
 
     INVALID_ENDPOINT: (method, url) => `Cannot ${method}: ${url}`,
