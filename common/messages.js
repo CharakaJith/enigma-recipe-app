@@ -3,7 +3,7 @@ module.exports = {
   DATABASE: {
     CONNECTION: {
       SUCCESS: 'Connection has been established successfully!',
-      FAIL: (error) => `Unable to connect to the database: ${error}`,
+      FAILED: (error) => `Unable to connect to the database: ${error}`,
     },
   },
 };

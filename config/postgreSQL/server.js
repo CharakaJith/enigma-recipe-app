@@ -20,7 +20,7 @@ sequelize
     console.log(DATABASE.CONNECTION.SUCCESS);
   })
   .catch((error) => {
-    console.error(DATABASE.CONNECTION.FAIL(error));
+    console.error(DATABASE.CONNECTION.FAILED(error));
     process.exit();
   });
 
